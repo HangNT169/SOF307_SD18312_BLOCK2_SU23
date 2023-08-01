@@ -133,16 +133,44 @@ void timSoLonHon(int a, int b){
         printf("So lon hon la: %d", *pt1);
 }
 int timMax(int *a, int *b, int *c){
-    // Code 
-    return 0;
+    int max;
+    if(*a > *b && *a > *c){
+        max = *a;
+    }else if(*b > max && *b > *c){
+        max = *b;
+    }else{
+        max = *c;
+    }
+    return max;
 }
 void swap(int *a, int *b){
-   // Code  
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+void bubbleSort(int *arrNummber, int n){
+    for (int i = 0; i < n - 1; i++)
+    {
+        for (int j = 0; j < n - 1 - i; j++)
+        {
+            if(arrNummber[j] > arrNummber[j+1]){
+                swap(&arrNummber[j], &arrNummber[j+1]);
+            }
+        }
+    }
+    for (int i = 0; i < n; i++){
+        printf("%5d", arrNummber[i]);
+    }
 }
 
 int main()
 {
 	// KhaiBaoConTro();
 	// SizeContro();
-    
+	// int a = 1, b = 2, c = 3;
+    // int max = timMax(&a, &b, &c);
+    // printf("Max la: %d\n", max);
+    int arrNummber[] = {1,3,5,222,1,4,22,2222,1};
+    int n = sizeof(arrNummber) / sizeof(arrNummber[0]);
+    bubbleSort(arrNummber, n);
 }
